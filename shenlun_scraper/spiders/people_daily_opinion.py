@@ -69,6 +69,8 @@ class PeopleDailyOpinionSpider(scrapy.Spider):
         item['author'] = author
         item['content'] = content
         item['pub_date'] = pub_date
+        #这里spider_name同爬虫名称，返回后用于在pipeline中创建对应的result子文件夹
+        item['spider_name'] = 'opinion'
 
         yield item
 

@@ -15,3 +15,4 @@ class ShenlunScraperItem(scrapy.Item):
     author = scrapy.Field()
     content = scrapy.Field()
     pub_date = scrapy.Field()
+    spider_name = scrapy.Field()
