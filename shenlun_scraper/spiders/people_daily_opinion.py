@@ -47,7 +47,6 @@ class PeopleDailyOpinionSpider(scrapy.Spider):
     
     def parse_info(self, response):
 
-
         item = ShenlunScraperItem()
 
         #获取文章title,authr
