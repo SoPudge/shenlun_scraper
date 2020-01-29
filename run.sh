@@ -12,7 +12,7 @@ scrapy crawl opinion
 zip -r -0 ../result.zip ../result
 
 #将结果拷贝到上级文件夹，方便覆盖到release分支
-cp -rf result* ..
+cp -rf ../result* ../..
 
 #切换分支release
 git checkout release
