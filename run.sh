@@ -18,4 +18,4 @@ cp -rf ../result* ../..
 git checkout release
 
 #复制文件到当前文件夹，即合并目录，保持原有文件，仅新增
-cp -rf ../result* .
+cp -rf ../../result* ../
