@@ -121,6 +121,8 @@ class PackResToMobiPipeline(object):
         else:
             logger.info('This article %s-%s-%s exist, skip by PackResToMobiPipeline' % (pub_date, title, author))
 
+        return item
+
 class PackResToPdfPipeline(object):
     '''
     Description:
@@ -152,7 +154,7 @@ class PackResToPdfPipeline(object):
             # out = os.popen("ebook-convert text.html ")
             workebookconvert = os.getcwd() + '/../resources/ebook-convert'
             # out = os.popen("%s text.html %s" % (workebookconvert,workpdf)).read()
-            out = os.popen("ebook-convert text.html %s" % (workpdf)).read()
+            out = os.popen("ebook-convert %s/text.html %s" % (workdir,workpdf)).read()
             logger.info(out)
         else:
             logger.info('This article pdf %s-%s-%s exist, skip by PackResToPdfPipeline' % (pub_date, title, author))
