@@ -70,6 +70,7 @@ ITEM_PIPELINES = {
     'shenlun_scraper.pipelines.ShenlunScraperPipeline': 300,
     'shenlun_scraper.pipelines.PrepareResPipeline': 301,
     'shenlun_scraper.pipelines.PackResToMobiPipeline': 302,
+    'shenlun_scraper.pipelines.PackResToPdfPipeline': 303,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

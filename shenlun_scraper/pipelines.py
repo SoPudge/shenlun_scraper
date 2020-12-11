@@ -121,3 +121,38 @@ class PackResToMobiPipeline(object):
         else:
             logger.info('This article %s-%s-%s exist, skip by PackResToMobiPipeline' % (pub_date, title, author))
 
+class PackResToPdfPipeline(object):
+    '''
+    Description:
+        通过calibre中的ebook-convter转换html到PDF
+    '''
+
+    def __init__(self):
+        '''
+        Description:
+            列出所有需要的路径信息
+
+        '''
+
+    def process_item(self, item, spider):
+
+        title = item['title']
+        author = item['author']
+        pub_date = item['pub_date']
+        spider_name = item['spider_name']
+
+        workdir = os.getcwd() + '/../result/%s/%s-%s-%s' % (spider_name, pub_date, title, author)
+
+        #如果对应目录当中不存在mobi文件，就需要进行重新打包
+        if not bool([i for i in os.listdir(workdir) if 'pdf' in i]):
+
+            opf_name = [i for i in os.listdir(workdir) if 'opf' in i][0]
+            workopf = workdir + '/' + opf_name
+            workpdf = workopf[:-3] + 'pdf'
+            # out = os.popen("ebook-convert text.html ")
+            workebookconvert = os.getcwd() + '/../resources/ebook-convert'
+            # out = os.popen("%s text.html %s" % (workebookconvert,workpdf)).read()
+            out = os.popen("ebook-convert text.html %s" % (workpdf)).read()
+            logger.info(out)
+        else:
+            logger.info('This article pdf %s-%s-%s exist, skip by PackResToPdfPipeline' % (pub_date, title, author))
