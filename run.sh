@@ -9,8 +9,8 @@ cd shenlun_scraper
 scrapy crawl opinion
 
 #打包结果
-zip -r -0 ../result.zip ../result
-zip -i "*".mobi -r ../mobi.zip -9 ../result
+#zip -r -0 ../result.zip ../result
+#zip -i "*".mobi -r ../mobi.zip -9 ../result
 
 #将结果拷贝到上级文件夹，方便覆盖到release分支
 cp -rf ../result* ../..
